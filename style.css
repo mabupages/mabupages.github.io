@@ -1,0 +1,197 @@
+/* VARIABLES DE COLOR (Cambia el color de acento aquí) */
+:root {
+    --color-fondo: #ffffff;
+    --color-texto: #333333;
+    --color-acento: #D35C54; /* <---  EL COLOR DE TU LOGO */
+    --color-oscuro: #1a1a1a;
+    --fuente-principal: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Scroll suave al hacer clic en el menú */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* NAVEGACIÓN */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--color-fondo);
+    position: fixed; /* Barra fija arriba */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-oscuro);
+}
+
+.logo-img {
+    height: 40px; /* Ajusta la altura de tu logo */
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-acento);
+}
+
+/* HERO SECTION (HEADER) */
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding-top: 80px; /* Espacio para la barra de navegación fija */
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-oscuro);
+    margin-bottom: 20px;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* DISEÑO DEL BOTÓN PRINCIPAL */
+.btn-principal {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--color-acento); /* Aquí se aplicará el color de tu logo */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px; /* Bordes redondeados tipo "píldora" */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    transition: all 0.3s ease; /* Hace que los cambios sean suaves, no bruscos */
+    margin-top: 20px;
+}
+
+/* EFECTO AL PASAR EL MOUSE (HOVER) */
+.btn-principal:hover {
+    background-color: #333; /* Cambia a un tono oscuro o gris al pasar el mouse */
+    transform: translateY(-3px); /* El botón "sube" un poquito al tocarlo */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* La sombra crece al subir */
+}
+
+/* EFECTO AL HACER CLIC */
+.btn-principal:active {
+    transform: translateY(-1px); /* Baja un poquito cuando lo presionas */
+}
+
+/* SERVICIOS */
+section {
+    padding: 100px 5%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--color-oscuro);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecto sutil al pasar el mouse */
+}
+
+.card h3 {
+    color: var(--color-acento);
+    margin-bottom: 15px;
+}
+
+/* CONTACTO */
+#contacto {
+    background-color: var(--color-oscuro);
+    color: white;
+    text-align: center;
+}
+
+#contacto h2 {
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #999;
+}
+
+/* ESTADO INICIAL: Oculto y un poco más abajo */
+.revelar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out; /* Controla la suavidad de la aparición */
+}
+
+/* ESTADO FINAL: Visible y en su posición original */
+.revelar.activo {
+    opacity: 1;
+    transform: translateY(0);
+}
