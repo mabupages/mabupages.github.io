@@ -1,15 +1,25 @@
-function revelarEfecto() {
-    var elementos = document.querySelectorAll(".revelar");
-    for (var i = 0; i < elementos.length; i++) {
-        var alturaVentana = window.innerHeight;
-        var distanciaTop = elementos[i].getBoundingClientRect().top;
-        var puntoCorte = 100; 
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionamos todos los elementos con la clase 'revelar'
+    const elementosRevelar = document.querySelectorAll(".revelar");
 
-        if (distanciaTop < alturaVentana - puntoCorte) {
-            elementos[i].classList.add("activo");
-        }
-    }
-}
+    // Configuramos el observador
+    const observador = new IntersectionObserver((entradas, observador) => {
+        entradas.forEach(entrada => {
+            if (entrada.isIntersecting) {
+                // Añade la clase 'activo' cuando el elemento entra en pantalla
+                entrada.target.classList.add("activo");
+                // Opcional: deja de observar el elemento una vez revelado
+                observador.unobserve(entrada.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Se activa cuando el 15% del elemento es visible
+        rootMargin: "0px 0px -50px 0px" 
+    });
 
-// Ejecutar la función cada vez que el usuario haga scroll
-window.addEventListener("scroll", revelarEfecto);
+    // Asignamos el observador a cada elemento
+    elementosRevelar.forEach(elemento => {
+        observador.observe(elemento);
+    });
+});

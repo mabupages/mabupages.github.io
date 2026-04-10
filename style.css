@@ -1,12 +1,8 @@
-/* 1. IMPORTAR FUENTE Y ICONOS */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
 :root {
     --bg: #ffffff;
-    --primary: #c5a059; /* TU COLOR DE LOGO (Dorado/Bronce) */
-    --dark: #1e293b;    /* Gris Oxford */
-    --text: #475569;
+    --primary: #d8584d; /* NUEVO: Rojo/Coral */
+    --dark: #050505;    /* NUEVO: Negro profundo */
+    --text: #444444;    /* Gris oscuro para que el texto sea fácil de leer */
     --white: #ffffff;
 }
 
@@ -14,13 +10,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* RESET DE ENLACES (ADIÓS CELESTE) */
 a {
     text-decoration: none;
-    color: inherit !important;
+    color: inherit;
     transition: 0.3s;
 }
 
@@ -31,9 +26,9 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVEGACIÓN - La hacemos un poco más alta para que quepa el logo grande */
+/* --- NAVEGACIÓN --- */
 nav {
-    height: 110px; /* Subimos de 100px a 110px */
+    height: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,49 +41,49 @@ nav {
     border-bottom: 1px solid #f1f5f9;
 }
 
-/* EL LOGO - Subimos el tamaño considerablemente */
 .logo-img {
-    height: 80px;      /* Antes estaba en 65px, ahora en 80px se verá mucho más claro */
+    height: 80px;
     width: auto;
     object-fit: contain;
-    transition: transform 0.3s ease; /* Efecto suave al pasar el mouse */
+    transition: transform 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.05); /* Crece un poquito cuando le pasas el cursor */
+    transform: scale(1.05);
 }
 
-/* IMPORTANTE: Ajustamos el Header para que no quede tapado por el nuevo Nav más alto */
-header {
-    padding-top: 190px; /* Aumentamos el colchón superior */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 40px; 
 }
 
-nav ul { display: flex; list-style: none; gap: 40px; }
-
-/* CAMBIO DE COLOR AL PASAR EL CURSOR (HOVER) */
 nav ul li a:hover {
     color: var(--primary) !important;
     transform: translateY(-2px);
     display: inline-block;
 }
 
-.logo-img { height: 65px; width: auto; }
-
-/* HEADER - CENTRADO PERFECTO */
+/* --- HEADER --- */
 header {
     padding: 180px 10% 100px 10%;
     min-height: 85vh;
     display: flex;
-    flex-direction: column; /* Alinea los elementos uno debajo de otro */
-    align-items: center;    /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     background: #fafafa;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -101,34 +96,43 @@ header h1 {
 
 header p {
     font-size: 1.2rem;
-    max-width: 700px; /* Limitamos el ancho para que el centrado se note más */
-    margin: 0 auto 40px auto; /* El "auto" a los lados centra el bloque */
+    max-width: 700px;
+    margin: 0 auto 40px auto;
     color: var(--text);
 }
 
+/* Botón llamativo con el nuevo color */
 .btn-principal {
-    display: inline-block;      /* Permite que tenga padding y márgenes */
+    display: inline-block;
     padding: 18px 45px;
-    background-color: var(--dark) !important;
+    background-color: var(--primary);
     color: var(--white) !important;
     font-weight: 700;
     text-transform: uppercase;
-    text-decoration: none;      /* Quita el subrayado */
     border-radius: 5px;
-    border: 2px solid var(--dark);
+    border: 2px solid var(--primary);
     transition: 0.3s ease;
     cursor: pointer;
-    margin-top: 20px;           /* Separa del párrafo centrado */
+    margin-top: 20px;
 }
 
 .btn-principal:hover {
-    background-color: transparent !important;
-    color: var(--dark) !important;
+    background-color: transparent;
+    color: var(--primary) !important;
     transform: translateY(-3px);
 }
 
-/* SERVICIOS E ICONOS */
-#servicios { padding: 100px 10%; text-align: center; }
+/* --- SERVICIOS --- */
+#servicios { 
+    padding: 100px 10%; 
+    text-align: center; 
+}
+
+#servicios h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
 
 .grid {
     display: grid;
@@ -137,14 +141,6 @@ header p {
     margin-top: 50px;
 }
 
-.icon-mabu {
-    font-size: 4rem; /* Los hacemos grandes */
-    display: block;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); /* Les da profundidad */
-}
-
-/* Centrado extra para los textos de las tarjetas */
 .card {
     display: flex;
     flex-direction: column;
@@ -152,23 +148,36 @@ header p {
     justify-content: center;
     text-align: center;
     padding: 50px 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .card i {
-    font-size: 3rem;
-    color: var(--primary) !important; /* Esto fuerza el color de tu logo */
+    font-size: 4rem;
+    color: var(--primary);
     margin-bottom: 25px;
     display: block;
+    /* Sombra actualizada al nuevo rojo */
+    filter: drop-shadow(0 5px 15px rgba(216, 88, 77, 0.3)); 
 }
 
+.card h3 {
+    color: var(--dark);
+    margin-bottom: 15px;
+}
 
-
-
-/* ANIMACIÓN DE REVELADO (RE-ACTIVADA) */
+/* --- ANIMACIÓN DE REVELADO --- */
 .revelar {
     opacity: 0;
     transform: translateY(50px);
-    transition: all 1s ease-out;
+    transition: all 0.8s ease-out;
 }
 
 .revelar.activo {
@@ -176,22 +185,38 @@ header p {
     transform: translateY(0);
 }
 
-/* CONTACTO */
-#contacto { padding: 120px 10%; background: var(--dark); color: white; text-align: center; }
-.email-link { font-size: clamp(1.5rem, 5vw, 2.5rem); color: var(--primary) !important; font-weight: 800; }
+/* --- CONTACTO --- */
+#contacto { 
+    padding: 120px 10%; 
+    background: var(--dark); /* Usa el nuevo #050505 */
+    color: white; 
+    text-align: center; 
+}
 
+#contacto h2 { margin-bottom: 15px; }
+#contacto p { margin-bottom: 30px; color: #cccccc; } /* Gris más claro para contraste en fondo negro */
+
+.email-link { 
+    font-size: clamp(1.5rem, 5vw, 2.5rem); 
+    color: var(--primary) !important; 
+    font-weight: 800; 
+}
+
+.email-link:hover {
+    opacity: 0.8;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000000; /* Un tono sutilmente más oscuro o igual que var(--dark) */
+    color: #888888;
+    border-top: 1px solid #1a1a1a;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     nav ul { display: none; }
     header { padding-top: 150px; }
-}
-
-
-.header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Esto centra horizontalmente */
-    justify-content: center; /* Esto centra verticalmente */
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto; /* Centra el bloque entero en la pantalla */
 }
