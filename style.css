@@ -206,6 +206,47 @@ header p {
     opacity: 0.8;
 }
 
+/* --- REDES SOCIALES --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background-color: #151515; /* Un fondo gris muy oscuro para resaltar sobre el #050505 */
+    color: var(--white);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: var(--primary); /* Cambia al color rojo/coral al pasar el mouse */
+    color: var(--white) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(216, 88, 77, 0.4); /* Sombra difuminada con tu color primario */
+}
+
+/* Ajuste responsive para los íconos en móviles muy pequeños */
+@media (max-width: 480px) {
+    .social-links {
+        gap: 15px;
+    }
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
 /* --- FOOTER --- */
 footer {
     text-align: center;
