@@ -197,9 +197,12 @@ header p {
 #contacto p { margin-bottom: 30px; color: #cccccc; } /* Gris más claro para contraste en fondo negro */
 
 .email-link { 
-    font-size: clamp(1.5rem, 5vw, 2.5rem); 
+    font-size: clamp(1.2rem, 6vw, 2.5rem); /* Ajustado para que se vea bien en celulares */
     color: var(--primary) !important; 
     font-weight: 800; 
+    word-break: break-all; /* OBLIGA al correo a saltar de línea si no cabe en la pantalla */
+    display: inline-block;
+    max-width: 100%;
 }
 
 .email-link:hover {
